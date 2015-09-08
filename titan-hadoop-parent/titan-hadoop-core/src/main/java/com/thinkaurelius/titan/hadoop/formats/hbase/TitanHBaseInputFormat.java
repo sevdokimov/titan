@@ -46,7 +46,7 @@ public class TitanHBaseInputFormat extends TitanInputFormat {
 
     @Override
     public RecordReader<NullWritable, FaunusVertex> createRecordReader(final InputSplit inputSplit, final TaskAttemptContext taskAttemptContext) throws IOException, InterruptedException {
-        return new TitanHBaseRecordReader(this, this.vertexQuery, (TableRecordReader) this.tableInputFormat.createRecordReader(inputSplit, taskAttemptContext), edgestoreFamily);
+        return new TitanHBaseRecordReader(this, this.vertexQuery, this.tableInputFormat.createRecordReader(inputSplit, taskAttemptContext), edgestoreFamily);
     }
 
     @Override
